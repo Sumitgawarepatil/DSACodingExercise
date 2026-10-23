@@ -51,25 +51,45 @@ namespace DSACodingExercise
             return second == int.MinValue ? -1 : second;
         }
 
-        public static int[] TwoSum(int[] nums, int target)
+        public static int[] TwoSum(int[] num, int target)
         {
-            if (nums == null || nums.Length < 2) return new int[0];
+            Dictionary<int, int> keyValuePairs = new Dictionary<int, int>();
 
-            Dictionary<int, int> numToIndex = new Dictionary<int, int>();
-
-            for (int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < num.Length; i++)
             {
-                int complement = target - nums[i];
+                int finalvalue = target - num[i];
 
-                if (numToIndex.ContainsKey(complement))       // 1. CHECK first
+                if (keyValuePairs.ContainsKey(finalvalue))
                 {
-                    return new int[] { numToIndex[complement], i };
-                }
+                    return new int[] { keyValuePairs[finalvalue], i };
 
-                numToIndex[nums[i]] = i;                      // 2. then STORE (outside the if)
+                }
+                else {
+                    keyValuePairs[num[i]] = i;
+                }
+            
             }
 
-            return new int[0];                                // 3. AFTER the loop ends
+            return new int[0];
+        
+        }
+
+        public static int FindMissingNumber(int[] arr)
+        {
+            int n = arr.Length + 1;
+            int expectedsum = 0;
+            int actualsum = 0;
+
+            for (int i = 0; i <= n; i++)
+            {
+                expectedsum += i;
+            }
+
+            foreach (int num in arr)
+            {
+                actualsum += num;
+            }
+            return expectedsum - actualsum;
         }
     }
 }

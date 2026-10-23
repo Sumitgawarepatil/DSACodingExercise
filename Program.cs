@@ -68,10 +68,17 @@
             // (indexes), not the numbers themselves. Each input has exactly one valid solution,
             // and you may not use the same element twice.
             // Example: nums = [2, 7, 11, 15], target = 9 -> [0, 1]  (because 2 + 7 = 9)
-            int[] nums = { 2, 7, 11, 15 };
+            int[] num = { 2, 7, 11, 15 };
             int target = 9;
-            var result = ArrayPrograms.TwoSum(nums, target);
-            Console.WriteLine($"[{string.Join(", ", result)}]"); // Output: [0, 1]
+            var result = ArrayPrograms.TwoSum(num, target);
+            Console.WriteLine(string.Join(", ", result));
+
+            // Q10 - FindMissingNumber - An array contains numbers from 1 to n with exactly one number
+            // missing (no duplicates, any order). Find the missing number.
+            // Example: [1, 2, 4, 5, 6] -> 3
+            int[] arr = { 1, 2, 4, 5, 6 };
+            Console.WriteLine(ArrayPrograms.FindMissingNumber(arr)); // Output: 3
+
         }
     }   
 }
