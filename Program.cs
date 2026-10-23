@@ -29,6 +29,7 @@
             // Q4 - ReverseWords - Write a C# method that reverses the order of the words in a sentence.
             // The words themselves should not be reversed, only their order. Handle extra spaces.
             // Example: "I love Deloitte" -> "Deloitte love I"
+            Console.WriteLine(StringPrograms.ReverseWords("I love Deloitte"));    // Deloitte love I
         }
-    }
+    }   
 }

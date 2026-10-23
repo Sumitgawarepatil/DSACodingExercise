@@ -45,6 +45,20 @@ namespace DSACodingExercise
             return sortedname1 == sortedname2;
         }
 
+        public static string ReverseWords(string sentence)
+        {
+            if (string.IsNullOrEmpty(sentence))
+                return sentence;
+            string[] words = sentence.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder stringBuilder = new StringBuilder();
 
+            for (int i = words.Length - 1; i >= 0; i--)
+            {
+                stringBuilder.Append(words[i]);
+                if (i > 0)
+                    stringBuilder.Append(' ');
+            }
+            return stringBuilder.ToString();
+        }
     }
 }
