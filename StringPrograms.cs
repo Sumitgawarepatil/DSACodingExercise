@@ -60,5 +60,54 @@ namespace DSACodingExercise
             }
             return stringBuilder.ToString();
         }
+        public  static Dictionary<char , int> CountCharacters(string input)
+        {
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+            foreach (char c in input.ToLower())
+            {
+                if (c != ' ')
+                {
+                    if (charCount.ContainsKey(c))
+                    {
+                        charCount[c]++;
+                    }
+                    else
+                    {
+                        charCount[c] = 1;
+                    }
+                
+                }
+            }
+            return charCount;
+        }
+
+        public static char FirstNonRepeatingChar(string input)
+        {
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+            foreach (char c in input.ToLower())
+            {
+                if (c != ' ')
+                {
+                    if (charCount.ContainsKey(c))
+                    {
+                        charCount[c]++;
+                    }
+                    else
+                    {
+                        charCount[c] = 1;
+                    }
+                }
+            }
+            foreach (char c in input.ToLower())
+            {
+                if (c != ' ' && charCount[c] == 1)
+                {
+                    return c;
+                }
+            }
+            return '\0'; // Return '\0' if no non-repeating character is found
+        }
+
     }
 }
