@@ -62,6 +62,16 @@
             // If there is no second largest, return -1 (or say int.MinValue).
             // Example: [10, 5, 20, 8, 20] -> 10
             Console.WriteLine(ArrayPrograms.SecondLargest(new int[] { 10, 5, 20, 8, 20 })); // Output: 10
+
+            // Q9 - TwoSum - You are given an integer array 'nums' and an integer 'target'.
+            // Find two numbers in the array that add up to the target, and return their positions
+            // (indexes), not the numbers themselves. Each input has exactly one valid solution,
+            // and you may not use the same element twice.
+            // Example: nums = [2, 7, 11, 15], target = 9 -> [0, 1]  (because 2 + 7 = 9)
+            int[] nums = { 2, 7, 11, 15 };
+            int target = 9;
+            var result = ArrayPrograms.TwoSum(nums, target);
+            Console.WriteLine($"[{string.Join(", ", result)}]"); // Output: [0, 1]
         }
     }   
 }
