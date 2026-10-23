@@ -79,6 +79,51 @@
             int[] arr = { 1, 2, 4, 5, 6 };
             Console.WriteLine(ArrayPrograms.FindMissingNumber(arr)); // Output: 3
 
+
+
+            //Question 11: LINQ employee tasks
+
+            var employees = LinqPrograms.GetEmployees();
+
+            // a Employees from Pune, ordered by name
+
+            List<Employee> employeesA = employees.Where(x => x.City == "Pune").OrderBy(x => x.Name).ToList();
+
+            // b Top 3 highest-paid employees (name + salary)
+            List<Employee> employeesB = employees.OrderByDescending(x =>x.Salary).Take(3).ToList();
+            foreach(var employee in employeesB)
+            {
+                Console.WriteLine($"{employee.Name} : {employee.Salary}");
+            }
+
+            // c Second-highest salary
+            var secondHighestsalary = employees.Select(x => x.Salary).Distinct().OrderByDescending(x => x).Skip(1).FirstOrDefault();
+            Console.WriteLine($"Second highest salary is: {secondHighestsalary}");
+            // d Count of employees in each department
+
+            var departmentCount = employees.GroupBy(x => x.Department);
+
+            foreach (var department in departmentCount)
+            {
+                Console.WriteLine($"{department.Key} : {department.Count()}");
+            }
+
+            // e Average salary per department
+
+            var employeesByDept = employees.GroupBy(x => x.Department).ToList();
+
+            foreach (var group in employeesByDept)
+            {
+                Console.WriteLine($"{group.Key} : {group.Average(x =>x.Salary)}");
+            }
+
+            //f duplicate names(the last LINQ task)
+
+            var dublicateName = employees.GroupBy(x => x.Name).Where(g => g.Count() > 1);
+            foreach (var group in dublicateName)
+            {
+                Console.WriteLine($"{group.Key} : {group.Count()}");
+            }
         }
     }   
 }
